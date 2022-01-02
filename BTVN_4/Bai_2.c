@@ -18,13 +18,16 @@ int main()
     }
 
     for (i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            if (a[i] > a[j] && a[j] < 0 && a[i] < 0)
-            {
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-            }
+        if (a[i] < 0)
+        {
+            for (int j = 0; j < n; j++)
+                if (a[i] > a[j])
+                {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+        }
 
     printf("\nMang sau khi sap xep la: ");
     for (i = 0; i < n; i++)
