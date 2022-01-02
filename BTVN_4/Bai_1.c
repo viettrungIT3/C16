@@ -1,50 +1,41 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <math.h>
 
 int main()
 {
-    // dieu kien nhap
-    int n;
-    printf("Nhap so luong phan tu: ");
+    int n, a[101], i, j;
+
     do
     {
+        printf("Nhap n = ");
         scanf("%d", &n);
-        if (n <= 0 || n >= 100)
-        {
-            printf("Khong thoa man, nhap lai: ");
-        }
-    }
-    while (n <= 0 || n >= 100);
-    // nhap mang n phan tu
-    int i;
-    double arr[99];
-    printf("Nhap cac phan tu: ");
+    } while (n <= 0 || n >= 100);
+
     for (i = 0; i < n; i++)
     {
-        scanf("%lf", &arr[i]);
+        printf("Nhap a[%d] = ", i);
+        scanf("%d", &a[i]);
     }
-    // sap xep
-    int j;
-    for (i = 0; i < n - 1; i++)
+
+    int count1 = 0, count2 = 0;
+
+    for ( i = 0; i < n - 1; i++)
     {
-        if (arr[i] < 0)
+        if ( a[i] < a[i + 1])
         {
-            for (j = i + 1; j < n; j++)
-            {
-                if (arr[j] < 0 && arr[i] < arr[j])
-                {
-                    double c = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = c;
-                }
-            }
+            count1++;
+        }
+        if ( a[i] > a[i + 1])
+        {
+            count2++;
         }
     }
-    // xuat ket qua
-    printf("Cac phan tu sau khi sap xep so am giam dan: ");
-    for (i = 0; i < n; i++)
-    {
-        printf("%.1lf ", arr[i]);
-    }
+
+    if ( count1 ==  n - 1)
+        printf("YES\n");
+    else if ( count2 == n - 1)
+        printf("NO\n");
+    else printf("-1");
+
     return 0;
 }

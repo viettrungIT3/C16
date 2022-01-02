@@ -28,7 +28,7 @@ int main()
 		if (a[i] >= 2)
 		{
 			int check = 1;
-			for (j = 2; j <= a[i] / 2; j++)
+			for (j = 2; j <= sqrt(a[i]); j++)
 				if (a[i] % j == 0)
 					check = 0;
 			if (check == 1)

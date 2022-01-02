@@ -20,10 +20,10 @@ int main()
     for (i = 0; i < n; i++)
         if (a[i] < 0)
         {
-            for (int j = 0; j < n; j++)
-                if (a[i] > a[j])
+            for (int j = i + 1; j < n; j++)
+                if (a[i] < a[j] && a[j] < 0)
                 {
-                    int temp = a[i];
+                    float temp = a[i];
                     a[i] = a[j];
                     a[j] = temp;
                 }
@@ -31,7 +31,12 @@ int main()
 
     printf("\nMang sau khi sap xep la: ");
     for (i = 0; i < n; i++)
-        printf("%f ", a[i]);
+    {
+        if (a[i] == (int)a[i])
+            printf("%.0f ", a[i]);
+        else
+            printf("%.1f ", a[i]);
+    }
 
     return 0;
 }
