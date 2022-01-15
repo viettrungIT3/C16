@@ -50,9 +50,9 @@ int main(int argc, char const *argv[])
     // }
 
 
-    // cout << " Ket qua = " << setprecision(4) << fixed << l;
+    // cout << " Ket qua = " << fixed << setprecision(4) << l;
     // cout << " Ket qua = ";
-    cout << setprecision(4) << fixed << L( n, x);
+    cout << fixed << setprecision(4) << L( n, x);
 
     return 0;
 }

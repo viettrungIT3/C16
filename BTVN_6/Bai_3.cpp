@@ -53,6 +53,28 @@ void SapXepG(int a[], int n)
     }
 }
 
+void SapXep(int a[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] > a[j])
+            {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+            if (a[i] < a[j] && a[i] < 0 && a[j] < 0)
+            {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+}
+
 int main()
 {
     int n;
@@ -75,24 +97,30 @@ int main()
     // cout << "\nMang vua nhap la: ";
     // XuatMang(a, n);
 
-    SapXepT(a, n);
-    // cout << "\nMang sau khi sap xep la: ";
+    // C1:
+    // SapXepT(a, n);
+    // // cout << "\nMang sau khi sap xep la: ";
+    // // XuatMang(a, n);
+
+    // int vtD = 0, i = 0;
+    // while (true)
+    // {
+    //     if(a[i] >= 0)
+    //     {
+    //         vtD = i;
+    //         break;
+    //     }   
+    //     i++;
+    // }
+
+    // SapXepG(a, vtD);
+    // // cout << "\nMang sau khi sap xep la: ";
     // XuatMang(a, n);
-
-    int vtD = 0, i = 0;
-    while (true)
-    {
-        if(a[i] >= 0)
-        {
-            vtD = i;
-            break;
-        }   
-        i++;
-    }
-
-    SapXepG(a, vtD);
+    
+    // C2: 
+    SapXep(a, n);
     // cout << "\nMang sau khi sap xep la: ";
     XuatMang(a, n);
-    
+
     return 0;
 }
