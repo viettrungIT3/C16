@@ -34,6 +34,12 @@ int main(int argc, char const *argv[])
     // cout << "Nhap so thuc x = ";
     cin >> x;
 
+    if ( x <= 0 )
+    {
+        cout << "Khong thuc hien duoc phep tinh!" << endl;
+        return 0;
+    }
+
     // if (n % 2 == 0)
     //     l = fabs( log(x) / log(2) + exp(n) + 2021);
     // else
